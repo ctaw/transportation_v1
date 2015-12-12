@@ -1,0 +1,39 @@
+.fullscreen.landing.parallax data-diff="100" data-img-height="1333" data-img-width="2000" style="background-image:url(#{asset_path('bg.png')});" 
+  .overlay
+    .container
+      .row
+        .col-md-7
+          /! /.logo
+          .logo.wow.fadeInDown
+            a href="" 
+              = image_tag('logo.png')
+          /! /.main title
+          h1.wow.fadeInLeft
+            | Find a route now
+          form.form-horizontal
+            .form-group
+              .col-sm-7
+                input.form-control placeholder="Starting Point"
+            .form-group
+              .col-sm-7
+                input.form-control placeholder="Destination"
+
+          .head-btn.wow.fadeInLeft
+            a.btn-head-search Get Route
+
+        /! /.signup form
+        .col-md-5
+          .signup-header.wow.fadeInUp
+            h3.form-title.text-center GET STARTED
+            form.form-header action="" id="#" method="POST" role="form" 
+              input name="u" type="hidden" value="" /
+              input name="id" type="hidden" value="" /
+              .form-group
+                input#name.form-control.input-lg name="MERGE1" placeholder=("Email Addres") required="" type="text" /
+              .form-group
+                input#password.form-control.input-lg name="MERGE0" placeholder=("Password") required="" type="email" /
+              .form-group.last
+                input.btn.btn-warning.btn-block.btn-lg type="submit" value="LOGIN" /
+              p.privacy.text-center
+                | Don't have an account yet sign up now
+               

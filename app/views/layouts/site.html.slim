@@ -8,5 +8,9 @@ html
     link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"
     = csrf_meta_tags
 
-  body
-    = yield
+  body data-spy="scroll" data-target="#navbar-scroll"
+  #preloader
+  #top
+  = render '/site/partials/landing'
+  = render '/site/partials/header'
+  = yield
