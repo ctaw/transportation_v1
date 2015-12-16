@@ -180,6 +180,19 @@ a:hover {
   color: #3eb1f8;
 }
 
+.signin-header {
+  margin: 150px 0 150px;
+  background: rgba(255,255,255,0.2);
+  border-radius: 4px;
+  padding-left: 20px;
+  padding-right: 20px;  
+}
+.signin-header h3{
+  padding: 20px 0 10px;
+  color: white;
+  font-weight: 300;
+}
+
 .signup-header {
   margin: 100px 0 100px;
   background: rgba(255,255,255,0.2);

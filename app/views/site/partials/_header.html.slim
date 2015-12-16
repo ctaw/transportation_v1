@@ -19,3 +19,6 @@
             a href="#testi"  Reviews
           li
             a href="#contact"  Contact
+          - if user_signed_in?
+            li
+              a href="/admin/dashboard" My Account

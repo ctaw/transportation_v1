@@ -1,0 +1,16 @@
+section#main-wrapper.theme-default
+  = render '/admin/partials/header'
+  = render '/admin/partials/sidebar'
+
+  section.main-content-wrapper
+    .pageheader
+      h1 Profile
+      .breadcrumb-wrapper.hidden-xs
+        span.label You are here:
+        ol.breadcrumb
+          li
+            a href="/"  Dashboard
+          li.active Profile
+    = render 'admin/partials/notice'
+    = render 'form'
+

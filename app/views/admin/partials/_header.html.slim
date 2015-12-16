@@ -3,7 +3,7 @@ header#header
   .brand
     a.logo href="/" 
       i.fa.fa-truck
-      span Transpo
+      span style="margin-left: 10px;" Transpo
   /! logo end
   
   ul.nav.navbar-nav.navbar-right
@@ -12,7 +12,7 @@ header#header
         span.meta
           span.avatar
             = image_tag ('missing.png'), :class => "img-circle"
-          span.text = current_user.email
+          span.text = current_user.full_name
           span.caret
       ul.dropdown-menu.animated.fadeInRight role="menu" 
         li

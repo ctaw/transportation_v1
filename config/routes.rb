@@ -2,9 +2,12 @@ Rails.application.routes.draw do
 
   root :to => "site/home#index"
   
-  devise_for :user, :path => '', :path_names => {:sign_in => 'login', :sign_out => 'logout'}
-
-
+  devise_for :users, :path => '', :controllers => { :sessions => 'sessions', registrations: 'registrations' }, :path_names => { :sign_in => 'login', :password => 'forgot', :confirmation => 'confirm', :unlock => 'unblock', :registration => 'register', :sign_up => 'new', :sign_out => 'logout'}
+  as :user do
+    get 'register', :to => 'devise/registrations#new'
+    delete 'logout', :to => 'sessions#destroy'
+  end
+  
   namespace :admin do
     resources :dashboard
   end

@@ -6,9 +6,9 @@ aside.sidebar.sidebar-left
     .profile-body.dropdown
       a.dropdown-toggle aria-expanded="false" data-toggle="dropdown" href="javascript:void(0);" /
       h4
-        = current_user.email
+        = current_user.full_name
         span.caret
-      small.title Admin
+      small.title = current_user.role_id
       ul.dropdown-menu.animated.fadeInRight role="menu" 
         li
           a href="/edit" 
@@ -31,7 +31,7 @@ aside.sidebar.sidebar-left
   .setting-list
     .row
       .col-xs-8
-        a href="/edit"
+        a href="/register/edit"
           label.control-label Edit Your Profile
     .row
       .col-xs-8

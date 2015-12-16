@@ -12,28 +12,50 @@
             | Find a route now
           form.form-horizontal
             .form-group
-              .col-sm-7
-                input.form-control placeholder="Starting Point"
+              .col-sm-8
+                input.form-control.input-lg#search-start placeholder="Starting Point"
             .form-group
-              .col-sm-7
-                input.form-control placeholder="Destination"
+              .col-sm-8
+                input.form-control.input-lg#search-destination placeholder="Destination"
 
           .head-btn.wow.fadeInLeft
             a.btn-head-search Get Route
 
-        /! /.signup form
-        .col-md-5
-          .signup-header.wow.fadeInUp
-            h3.form-title.text-center GET STARTED
-            = form_for(resource, :html => {:class => "form-header"}, :as => resource_name, :url => session_path(resource_name)) do |f|
-              .form-group
-                = f.email_field :email, :class=>"form-control required input-lg", :placeholder=>"Email" 
-              .form-group
-                = f.password_field :password, :class=>"form-control required input-lg", :placeholder=>"Password"
-              .form-group.last
-                input.btn.btn-warning.btn-block.btn-lg type="submit" value="LOGIN" /
-              
-              p.privacy.text-center
-                | Don't have an account yet
-                a href="/sign_up"  Sign Up
-                |  now.
+       
+        - if user_signed_in?
+        - else
+          /! /.signup form
+          .col-md-5
+            .signin-header.wow.fadeInUp
+              h3.form-title.text-center GET STARTED
+              = form_for(resource, :html => {:class => "form-header"}, :as => resource_name, :url => session_path(resource_name)) do |f|
+                .form-group
+                  = f.email_field :email, :class=>"form-control required input-lg", :placeholder=>"Email"
+                .form-group
+                  = f.password_field :password, :class=>"form-control required input-lg", :placeholder=>"Password"
+                .form-group.last
+                  input.btn.btn-warning.btn-block.btn-lg type="submit" value="LOGIN" /
+                
+                p.privacy.text-center
+                  | Don't have an account yet
+                  a#sign-up-btn href="#"  Sign Up
+                  |  now.
+            
+            .signup-header.hidden
+              h3.form-title.text-center GET STARTED
+              = form_for(resource, :html => {:class => "form-header"}, :as => resource_name, :url => registration_path(resource_name)) do |f|
+                .form-group
+                  = f.email_field :email, :class=>"form-control required input-lg", :placeholder=>"Email"
+                .form-group
+                  = f.text_field :first_name, :class=>"form-control required input-lg", :placeholder=>"First Name"
+                .form-group
+                  = f.text_field :last_name, :class=>"form-control required input-lg", :placeholder=>"Last Name"
+                .form-group
+                  = f.password_field :password, :class=>"form-control required input-lg", :placeholder=>"Password"
+                .form-group.last
+                  input.btn.btn-warning.btn-block.btn-lg type="submit" value="LOGIN" /
+                
+                p.privacy.text-center
+                  | Don't have an account yet
+                  a#sign-in-btn href="#"  Sign In
+                  |  now.
