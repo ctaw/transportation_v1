@@ -25,15 +25,15 @@
         .col-md-5
           .signup-header.wow.fadeInUp
             h3.form-title.text-center GET STARTED
-            form.form-header action="" id="#" method="POST" role="form" 
-              input name="u" type="hidden" value="" /
-              input name="id" type="hidden" value="" /
+            = form_for(resource, :html => {:class => "form-header"}, :as => resource_name, :url => session_path(resource_name)) do |f|
               .form-group
-                input#name.form-control.input-lg name="MERGE1" placeholder=("Email Addres") required="" type="text" /
+                = f.email_field :email, :class=>"form-control required input-lg", :placeholder=>"Email" 
               .form-group
-                input#password.form-control.input-lg name="MERGE0" placeholder=("Password") required="" type="email" /
+                = f.password_field :password, :class=>"form-control required input-lg", :placeholder=>"Password"
               .form-group.last
                 input.btn.btn-warning.btn-block.btn-lg type="submit" value="LOGIN" /
+              
               p.privacy.text-center
-                | Don't have an account yet sign up now
-               
+                | Don't have an account yet
+                a href="/sign_up"  Sign Up
+                |  now.
