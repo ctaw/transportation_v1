@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 20151216181159) do
     t.string   "first_name"
     t.string   "middle_name"
     t.string   "last_name"
-    t.integer  "role_id"
+    t.integer  "role_id",                default: 1
     t.integer  "is_active"
   end
 
