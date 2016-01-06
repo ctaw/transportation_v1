@@ -10,6 +10,19 @@ Rails.application.routes.draw do
   
   namespace :admin do
     resources :dashboard
+    namespace :setting_modules do
+      resources :countries
+     end
+  end
+
+  
+  # resources :site do
+  #   get 'places/autocomplete_place_name'
+  # end
+  
+
+  namespace :site do
+
   end
 
 end

@@ -6,3 +6,4 @@
 //= require_tree ./site
 
 //= require ./vendor/map/mainmap
+//= require autocomplete-rails

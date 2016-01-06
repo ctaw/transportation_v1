@@ -26,6 +26,14 @@ aside.sidebar.sidebar-left
       a href="/admin/dashboard" title="Dashboard" 
         i.fa.fa-fw.fa-tachometer
         | Dashboard
+  
+  // CRUD
+  h5.sidebar-header Settings
+  ul.nav.nav-pills.nav-stacked
+    li class="#{(params[:controller] == 'admin/setting_modules/countries')  ? 'active' : ''}"
+      a href="/admin/setting_modules/countries"
+        i.fa.fa-file-o
+        | Countries
 
   h5.sidebar-header Account Settings
   .setting-list
