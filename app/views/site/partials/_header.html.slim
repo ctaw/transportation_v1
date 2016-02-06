@@ -1,18 +1,16 @@
 #menu
-  nav.navbar-wrapper.navbar-default role="navigation" 
+  nav.navbar-wrapper.navbar-default role="navigation"
     .container
       .navbar-header
-        button.navbar-toggle data-target=".navbar-backyard" data-toggle="collapse" type="button" 
+        button.navbar-toggle data-target=".navbar-backyard" data-toggle="collapse" type="button"
           span.sr-only Toggle navigation
           span.icon-bar
           span.icon-bar
           span.icon-bar
-        a.navbar-brand.site-name href="#top" 
+        a.navbar-brand.site-name href="#top"
           = image_tag('logo_dark.png')
       #navbar-scroll.collapse.navbar-collapse.navbar-backyard.navbar-right
         ul.nav.navbar-nav
-          li
-            a href="#googlemap"  Map
           li
             a href="#intro"  About
           li
@@ -22,5 +20,3 @@
           - if user_signed_in?
             li
               a href="/admin/dashboard" My Account
-
-          

@@ -16,17 +16,40 @@ ActiveRecord::Schema.define(version: 20160104142846) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "countries", force: :cascade do |t|
-    t.string "code"
-    t.string "name"
+  create_table "fares", force: :cascade do |t|
+    t.decimal "amount"
+    t.text    "description"
+    t.decimal "distance"
+    t.integer "type_of_vehicle_id"
   end
 
-  create_table "places", force: :cascade do |t|
-    t.string  "name"
-    t.string  "short_name"
-    t.string  "long_name"
-    t.integer "country_id"
+  create_table "road_blocks", force: :cascade do |t|
+    t.string   "name"
+    t.string   "lat"
+    t.string   "log"
+    t.string   "address"
+    t.datetime "start_date"
+    t.datetime "end_time"
+  end
+
+  create_table "schedules", force: :cascade do |t|
+    t.integer "vehicle_id"
+    t.string  "start_time"
+    t.string  "end_time"
     t.text    "description"
+  end
+
+  create_table "traffic_incidents", force: :cascade do |t|
+    t.string "name"
+    t.string "lat"
+    t.string "lon"
+    t.string "address"
+    t.text   "description"
+  end
+
+  create_table "type_of_vehicles", force: :cascade do |t|
+    t.string "name"
+    t.text   "description"
   end
 
   create_table "users", force: :cascade do |t|
@@ -51,5 +74,12 @@ ActiveRecord::Schema.define(version: 20160104142846) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+
+  create_table "vehicles", force: :cascade do |t|
+    t.string  "name"
+    t.text    "description"
+    t.integer "fare_id"
+    t.integer "type_of_vehicle_id"
+  end
 
 end

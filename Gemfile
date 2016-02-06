@@ -24,3 +24,6 @@ gem 'rails_12factor', group: :production
 gem 'pg'
 gem 'rails4-autocomplete'
 gem 'will_paginate'
+gem 'chosen-rails'
+gem 'jquery-datatables-rails', '~> 3.3.0'
+gem 'cocoon'

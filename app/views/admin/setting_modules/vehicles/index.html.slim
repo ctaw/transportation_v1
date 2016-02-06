@@ -1,10 +1,10 @@
 .pageheader
-  h1 Counrties
+  h1 Vehicles
   .breadcrumb-wrapper.hidden-xs
     span.label You are here:
     ol.breadcrumb
       li Dashboard
-      li.active Counrties
+      li.active Vehicles
 
 section#main-content.wow.fadeInUp
   .row
@@ -13,28 +13,35 @@ section#main-content.wow.fadeInUp
         .panel-heading
           h3.panel-title Data Table
           .actions.pull-right
-            a href="countries/new" 
+            a href="vehicles/new"
               i.fa.fa-plus
         .panel-body
           .table-responsive
-            table.table.table-bordered.table-hover.table-striped
+            table.table.table-bordered.table-hover.table-striped.vehicle-table
               thead
                 tr
                   th ID
-                  th Code
                   th Name
+                  th Type of Vehicle
                   th
               tbody
-                -if @countries == []
+                -if @vehicles == []
                   tr
                     td colspan="5" No records
                 -else
-                 - @countries.each do |c|
+                 - @vehicles.each do |c|
                    tr
                     td = c.id
-                    td = c.code
                     td = c.name
+                    td = c.type_of_vehicle.name
                     td style="width:8%;"
                       .action-icon.pull-right
-                        a href="countries/#{c.id}"
+                        a href="vehicles/#{c.id}"
                           i.fa.fa-eye
+                          tr
+
+javascript:
+ $('.vehicle-table').DataTable({
+   responsive: true,
+   "pagingType": "full_numbers"
+ });

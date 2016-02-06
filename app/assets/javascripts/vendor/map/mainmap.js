@@ -23,6 +23,15 @@ function initMap() {
   function calcRoute() {
     var start = document.getElementById('start').value;
     var end = document.getElementById('end').value;
+
+    var searchBox = new google.maps.places.SearchBox(start);
+    map.controls[google.maps.ControlPosition.TOP_LEFT].push(start);
+
+    // Bias the SearchBox results towards current map's viewport.
+    map.addListener('bounds_changed', function() {
+      searchBox.setBounds(map.getBounds());
+    });
+
   }
-  
+
 } // End of initMap

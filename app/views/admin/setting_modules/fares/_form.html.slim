@@ -1,0 +1,39 @@
+.row
+  .col-md-12
+    .panel.panel-default
+      .panel-heading
+        h3.panel-title Fare Details
+        .actions.pull-right
+          a href="/admin/setting_modules/fares"
+            i.fa.fa-backward
+      .panel-body
+        = form_for([:admin, :setting_modules, @fare], :html => {:class => "form-horizontal form-border"}) do |f|
+          .form-group
+            label.col-sm-3.control-label Type of Vehicle
+            .col-sm-6
+              = f.select(:type_of_vehicle_id, options_from_collection_for_select(@type_of_vehicles,"id","name", f.object.type_of_vehicle_id),{},:class =>"form-control chosen")
+
+          .form-group
+            label.col-sm-3.control-label Description
+            .col-sm-6
+              = f.text_area :description, :class=>"form-control"
+
+          .form-group
+            label.col-sm-3.control-label Amount
+            .col-sm-6
+              = f.text_field :amount, :class=>"form-control"
+
+          .form-group
+            label.col-sm-3.control-label Distance
+            .col-sm-6
+              = f.text_field :distance, :class=>"form-control", :placeholder => "km"
+
+          .row
+            .col-md-12
+              hr
+              .btn-group.pull-right
+                a.btn.btn-default.btn-sm href="/admin/setting_modules/fares" Cancel
+                = f.submit "Save", :class => "btn btn-success btn-sm"
+
+javascript:
+  $(".chosen").chosen();
