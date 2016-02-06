@@ -32,14 +32,14 @@ ActiveRecord::Schema.define(version: 20160104142846) do
     t.string "country",     default: "Philippines"
     t.string "address"
     t.text   "description"
-    t.string "lon"
-    t.string "lat"
+    t.float  "latitude"
+    t.float  "longitude"
   end
 
   create_table "road_blocks", force: :cascade do |t|
     t.string   "name"
-    t.string   "lat"
-    t.string   "log"
+    t.float    "latitude"
+    t.float    "longitude"
     t.string   "address"
     t.datetime "start_date"
     t.datetime "end_time"
