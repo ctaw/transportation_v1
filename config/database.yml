@@ -1,0 +1,17 @@
+default: &default
+  adapter: postgresql
+  user: postgres
+  password: admin
+  pool: 5
+  timeout: 5000
+
+development:
+  <<: *default
+  database: transportation_database
+
+
+production:
+  <<: *default
+  database: transportation_production
+  username: translation
+  password: <%= ENV['TRANSPORTATION_DATABASE_PASSWORD'] %>
