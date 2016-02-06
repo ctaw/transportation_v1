@@ -16,10 +16,10 @@
                 = text_field_tag "search-start", nil, name: nil, :class=>"form-control input-lg", :placeholder => "Start", :data => {autocomplete_source: Place.select("address").order(:address).map(&:address)}
             .form-group
               .col-sm-8
-                = text_field_tag "search-destination", nil, name: nil, :class=>"form-control input-lg", :placeholder => "Start", :data => {autocomplete_source: Place.select("address").order(:address).map(&:address)}
+                = text_field_tag "search-destination", nil, name: nil, :class=>"form-control input-lg", :placeholder => "Destination", :data => {autocomplete_source: Place.select("address").order(:address).map(&:address)}
 
           .head-btn.wow.fadeInLeft
-            a.btn-head-search href="/site/map" Get Route
+            a.btn-head-search href="/site/map#map-div" Get Route
 
 
         - if user_signed_in?
