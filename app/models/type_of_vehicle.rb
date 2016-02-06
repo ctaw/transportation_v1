@@ -1,4 +1,4 @@
 class TypeOfVehicle < ActiveRecord::Base
-  belongs_to :vehicle
-  belongs_to :fare
+  has_many :vehicles
+  has_many :fare
 end

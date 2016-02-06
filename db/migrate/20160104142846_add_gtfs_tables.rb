@@ -9,8 +9,14 @@ class AddGtfsTables < ActiveRecord::Migration
     create_table :vehicles do |t|
       t.string :name
       t.text :description
-      t.integer :fare_id
       t.integer :type_of_vehicle_id
+      t.integer :agency_id
+      t.integer :schedule_id
+    end
+
+    create_table :agencies do |t|
+      t.string :name
+      t.text :description
     end
 
     create_table :fares do |t|
@@ -21,7 +27,6 @@ class AddGtfsTables < ActiveRecord::Migration
     end
 
     create_table :schedules do |t|
-      t.integer :vehicle_id
       t.string :start_time
       t.string :end_time
       t.text :description
@@ -42,6 +47,14 @@ class AddGtfsTables < ActiveRecord::Migration
       t.string :lon
       t.string :address
       t.text :description
+    end
+
+    create_table :places do |t|
+      t.string :country, :default => "Philippines"
+      t.string :address
+      t.text :description
+      t.string :lon
+      t.string :lat
     end
 
   end

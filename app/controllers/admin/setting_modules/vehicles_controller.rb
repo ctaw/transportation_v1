@@ -1,6 +1,7 @@
 class Admin::SettingModules::VehiclesController < AdminController
 
   before_action :set_vehicle_id, :only=> [:show, :edit, :update, :destroy]
+  before_action :look_ups, :only => [:edit, :new, :update]
 
   def index
   	@vehicles = Vehicle.select("id, name, type_of_vehicle_id").order("name ASC")
@@ -20,6 +21,7 @@ class Admin::SettingModules::VehiclesController < AdminController
   end
 
   def show
+    @fares = Fare.where(:type_of_vehicle_id => @vehicle.type_of_vehicle_id)
   end
 
   def edit
@@ -44,8 +46,13 @@ class Admin::SettingModules::VehiclesController < AdminController
     @vehicle = Vehicle.find(params[:id])
   end
 
+  def look_ups
+    @type_of_vehicles = TypeOfVehicle.select("id, name").order("name ASC")
+    @agencies = Agency.select("id, name").order("name ASC")
+  end
+
   def vehicle_params
-    params.require(:vehicle).permit(:name, :description, :fare_id, :type_of_vehicle_id)
+    params.require(:vehicle).permit(:name, :description, :agency_id, :type_of_vehicle_id)
   end
 
 end

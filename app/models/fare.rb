@@ -1,3 +1,3 @@
 class Fare < ActiveRecord::Base
-  has_many :type_of_vehicles
+  belongs_to :type_of_vehicle
 end

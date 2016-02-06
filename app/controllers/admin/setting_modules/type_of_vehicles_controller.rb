@@ -43,7 +43,7 @@ class Admin::SettingModules::TypeOfVehiclesController < AdminController
   private
 
   def set_type_of_vehicle_id
-    @type_of_vehicle = TypeOfVehicle.find(params[:id])
+    @type_of_veihicle = TypeOfVehicle.find(params[:id])
   end
 
   def type_of_vehicle_params

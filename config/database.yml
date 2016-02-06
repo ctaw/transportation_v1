@@ -11,9 +11,9 @@ development:
   <<: *default
   database: transportation_v1_development
 
-test:
-  <<: *default
-  database: transportation_v1_test
+# test:
+#   <<: *default
+#   database: transportation_v1_test
 
 production:
   <<: *default

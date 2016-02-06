@@ -19,14 +19,14 @@
               = f.text_area :description, :class=>"form-control"
 
           .form-group
-            label.col-sm-3.control-label Fare
+            label.col-sm-3.control-label Agency
             .col-sm-6
-              = f.text_field :fare_id, :class=>"form-control"
+              = f.select(:agency_id, options_from_collection_for_select(@agencies,"id","name", f.object.agency_id),{},:class =>"form-control chosen")
 
           .form-group
             label.col-sm-3.control-label Type of Vehicle
             .col-sm-6
-              = f.text_field :type_of_vehicle_id, :class=>"form-control"
+              = f.select(:type_of_vehicle_id, options_from_collection_for_select(@type_of_vehicles,"id","name", f.object.type_of_vehicle_id),{},:class =>"form-control chosen")
 
           .row
             .col-md-12

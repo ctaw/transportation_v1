@@ -26,6 +26,10 @@ aside.sidebar.sidebar-left
       a href="/admin/dashboard" title="Dashboard"
         i.fa.fa-fw.fa-tachometer
         | Dashboard
+    li class="#{params[:controller] == 'admin/places' ? 'active' : ''}"
+      a href="/admin/places" title="Places"
+        i.fa.fa-fw.fa-tachometer
+        | Places
 
   // CRUD
   h5.sidebar-header Settings
@@ -34,6 +38,12 @@ aside.sidebar.sidebar-left
       a href="/admin/setting_modules/type_of_vehicles"
         i.fa.fa-file-o
         | Type of Vehicles
+
+    li class="#{(params[:controller] == 'admin/setting_modules/agencies')  ? 'active' : ''}"
+      a href="/admin/setting_modules/agencies"
+        i.fa.fa-file-o
+        | Agencies
+
     li class="#{(params[:controller] == 'admin/setting_modules/vehicles')  ? 'active' : ''}"
       a href="/admin/setting_modules/vehicles"
         i.fa.fa-file-o

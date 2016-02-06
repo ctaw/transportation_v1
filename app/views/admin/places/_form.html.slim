@@ -1,0 +1,27 @@
+.row
+  .col-md-12
+    .panel.panel-default
+      .panel-heading
+        h3.panel-title Place
+        .actions.pull-right
+          a href="/admin/places"
+            i.fa.fa-backward
+      .panel-body
+        = form_for([:admin, @place], :html => {:class => "form-horizontal form-border"}) do |f|
+
+          .form-group
+            label.col-sm-3.control-label Address
+            .col-sm-6
+              = f.text_field :address, :class=>"form-control"
+
+          .form-group
+            label.col-sm-3.control-label Description
+            .col-sm-6
+              = f.text_area :description, :class=>"form-control"
+
+          .row
+            .col-md-12
+              hr
+              .btn-group.pull-right
+                a.btn.btn-default.btn-sm href="/admin/places" Cancel
+                = f.submit "Save", :class => "btn btn-success btn-sm"

@@ -10,10 +10,13 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :dashboard
+    resources :places
     namespace :setting_modules do
       resources :type_of_vehicles
       resources :vehicles
       resources :fares
+      resources :agencies
+      resources :schedules
      end
   end
 

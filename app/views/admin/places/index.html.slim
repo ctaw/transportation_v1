@@ -1,10 +1,10 @@
 .pageheader
-  h1 Fares
+  h1 Places
   .breadcrumb-wrapper.hidden-xs
     span.label You are here:
     ol.breadcrumb
       li Dashboard
-      li.active Fares
+      li.active Places
 
 section#main-content.wow.fadeInUp
   .row
@@ -13,28 +13,33 @@ section#main-content.wow.fadeInUp
         .panel-heading
           h3.panel-title Data Table
           .actions.pull-right
-            a href="fares/new"
+            a href="places/new"
               i.fa.fa-plus
         .panel-body
           .table-responsive
-            table.table.table-bordered.table-hover.table-striped.fares-table
+            table.table.table-bordered.table-hover.table-striped.places-table
               thead
                 tr
                   th ID
-                  th Type of Vehicle
-                  th Amount
+                  th Address
                   th
               tbody
-                -if @fares == []
+                -if @places == []
                   tr
-                    td colspan="4" No records
+                    td colspan="3" No records
                 -else
-                 - @fares.each do |c|
+                 - @places.each do |c|
                    tr
                     td = c.id
-                    td = c.type_of_vehicle.name
-                    td = number_to_currency(c.amount, :unit => "₱")
+                    td = c.address
                     td style="width:8%;"
                       .action-icon.pull-right
-                        a href="fares/#{c.id}"
+                        a href="places/#{c.id}"
                           i.fa.fa-eye
+                          tr
+
+javascript:
+ $('.places-table').DataTable({
+   responsive: true,
+   "pagingType": "full_numbers"
+ });

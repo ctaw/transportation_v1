@@ -16,11 +16,24 @@ ActiveRecord::Schema.define(version: 20160104142846) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "agencies", force: :cascade do |t|
+    t.string "name"
+    t.text   "description"
+  end
+
   create_table "fares", force: :cascade do |t|
     t.decimal "amount"
     t.text    "description"
     t.decimal "distance"
     t.integer "type_of_vehicle_id"
+  end
+
+  create_table "places", force: :cascade do |t|
+    t.string "country",     default: "Philippines"
+    t.string "address"
+    t.text   "description"
+    t.string "lon"
+    t.string "lat"
   end
 
   create_table "road_blocks", force: :cascade do |t|
@@ -33,10 +46,9 @@ ActiveRecord::Schema.define(version: 20160104142846) do
   end
 
   create_table "schedules", force: :cascade do |t|
-    t.integer "vehicle_id"
-    t.string  "start_time"
-    t.string  "end_time"
-    t.text    "description"
+    t.string "start_time"
+    t.string "end_time"
+    t.text   "description"
   end
 
   create_table "traffic_incidents", force: :cascade do |t|
@@ -78,8 +90,9 @@ ActiveRecord::Schema.define(version: 20160104142846) do
   create_table "vehicles", force: :cascade do |t|
     t.string  "name"
     t.text    "description"
-    t.integer "fare_id"
     t.integer "type_of_vehicle_id"
+    t.integer "agency_id"
+    t.integer "schedule_id"
   end
 
 end
