@@ -12,12 +12,13 @@ function initMap() {
   control.style.display = 'block';
   map.controls[google.maps.ControlPosition.TOP_CENTER].push(control);
 
-  var onChangeHandler = function() {
-    calculateAndDisplayRoute(directionsService, directionsDisplay);
-  };
-  document.getElementById('start').addEventListener('change', onChangeHandler);
-  document.getElementById('end').addEventListener('change', onChangeHandler);
+  // var onChangeHandler = function() {
+  //   calculateAndDisplayRoute(directionsService, directionsDisplay);
+  // };
+  // document.getElementById('start').addEventListener('change', onChangeHandler);
+  // document.getElementById('end').addEventListener('change', onChangeHandler);
 }
+
 
 function calculateAndDisplayRoute(directionsService, directionsDisplay) {
   var start = document.getElementById('start').value;

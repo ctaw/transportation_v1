@@ -10,19 +10,43 @@
           /! /.main title
           h1.wow.fadeInLeft
             | Find a route now
-          form.form-horizontal
-            .form-group
-              .col-sm-8
-                = text_field_tag "search-start", nil, name: nil, :class=>"form-control input-lg", :placeholder => "Start", :data => {autocomplete_source: Place.select("address").order(:address).map(&:address)}
-            .form-group
-              .col-sm-8
-                = text_field_tag "search-destination", nil, name: nil, :class=>"form-control input-lg", :placeholder => "Destination", :data => {autocomplete_source: Place.select("address").order(:address).map(&:address)}
 
-          .head-btn.wow.fadeInLeft
-            a.btn-head-search href="/site/map#map-div" Get Route
+          = form_tag({:controller => "map", :action => "index"},:class=>"form-horizontal", :method => "get")
+            .form-group
+              .col-sm-8
+                = text_field_tag "search_start", nil, name: "search_start", :class=>"form-control input-lg", :placeholder => "Start", :data => {autocomplete_source: Place.select("address").order(:address).map(&:address)}
+            .form-group
+              .col-sm-8
+                = text_field_tag "search_destination", nil, name: "search_destination", :class=>"form-control input-lg", :placeholder => "Destination", :data => {autocomplete_source: Place.select("address").order(:address).map(&:address)}
+
+            .head-btn.wow.fadeInLeft
+              = submit_tag "Get Route", :class=>"btn-head-search"
+
+
+
 
 
         - if user_signed_in?
+          - if params[:controller] == 'site/map'
+
+            .col-md-5
+              .panel.panel-default#direction
+                .panel-heading
+                  h3.panel-title Direction Details
+                .panel-body
+                  #right-panel
+                    .row
+                      label.col-lg-3 Start
+                      .col-lg-6 = @start
+                      input name="start" id="start" type="hidden" value="#{@start}"
+                      input name="end" id="end" type="hidden" value="#{@end}"
+                    .row
+                      label.col-lg-3 Destination
+                      .col-lg-6 = @end
+                    br
+                    br
+                    a.btn.btn-default#showMap onclick="calculateAndDisplayRoute()" href="#map-div" Show Map
+
         - else
           /! /.signup form
           .col-md-5
@@ -59,3 +83,5 @@
                   | Don't have an account yet
                   a#sign-in-btn href="#"  Sign In
                   |  now.
+
+javascript:

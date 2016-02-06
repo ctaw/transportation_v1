@@ -19,8 +19,8 @@ $(document).on 'ready page:load', ->
 	).resize()
 
 
-  $('#search-start').autocomplete
-    source: $('#search-start').data('autocomplete-source')
+  $('#search_start').autocomplete
+    source: $('#search_start').data('autocomplete-source')
 
-  $('#search-destination').autocomplete
-    source: $('#search-destination').data('autocomplete-source')
+  $('#search_destination').autocomplete
+    source: $('#search_destination').data('autocomplete-source')
