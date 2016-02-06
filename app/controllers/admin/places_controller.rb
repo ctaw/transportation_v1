@@ -13,7 +13,7 @@ class Admin::PlacesController < AdminController
   def create
   	@place = Place.new(place_params)
   	if @place.save
-  		redirect_to "/admin/setting_modules/places"
+  		redirect_to "/admin/places"
   	else
   		render :new
   	end
@@ -27,7 +27,7 @@ class Admin::PlacesController < AdminController
 
   def update
   	if @place.update(place_params)
-      redirect_to "/admin/setting_modules/places"
+      redirect_to "/admin/places"
     else
       render :edit
     end
@@ -35,7 +35,7 @@ class Admin::PlacesController < AdminController
 
   def destroy
   	@place.destroy
-  	redirect_to "/admin/setting_modules/places"
+  	redirect_to "/admin/places"
   end
 
   private
@@ -44,8 +44,8 @@ class Admin::PlacesController < AdminController
     @place = Place.find(params[:id])
   end
 
-  def agency_params
-    params.require(:place).permit(:country, :description, :address, :lon, :lat)
+  def place_params
+    params.require(:place).permit(:country, :address, :description, :address, :latitude, :longitude)
   end
 
 end
