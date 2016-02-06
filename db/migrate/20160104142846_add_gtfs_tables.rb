@@ -34,8 +34,8 @@ class AddGtfsTables < ActiveRecord::Migration
 
     create_table :road_blocks do |t|
       t.string :name
-      t.string :lat
-      t.string :log
+      t.float :latitude
+      t.float :longitude
       t.string :address
       t.datetime :start_date
       t.datetime :end_time
@@ -53,8 +53,8 @@ class AddGtfsTables < ActiveRecord::Migration
       t.string :country, :default => "Philippines"
       t.string :address
       t.text :description
-      t.string :lon
-      t.string :lat
+      t.float :latitude
+      t.float :longitude
     end
 
   end
