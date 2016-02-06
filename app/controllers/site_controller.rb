@@ -3,7 +3,8 @@ class SiteController < ApplicationController
   #inside views/layouts/site.html.slim
   layout 'site'
 
- 	autocomplete :place, :name, :full => true
+  autocomplete :place, :address, :full => true
+
 
   def index
   	@places = Place.all

@@ -7,4 +7,5 @@
 //= require_tree ./site
 
 //= require ./vendor/map/mainmap
+//= require jquery-ui
 //= require autocomplete-rails

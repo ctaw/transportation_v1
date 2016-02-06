@@ -24,4 +24,8 @@ Rails.application.routes.draw do
     resources :map
   end
 
+  resources :site do
+    get :autocomplete_place_name, :on => :collection
+  end
+
 end

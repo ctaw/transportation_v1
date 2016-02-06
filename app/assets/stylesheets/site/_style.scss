@@ -28,4 +28,29 @@
   color: #333;
   height: 55px;
 
-} 
+}
+.ui-menu-item{
+  background-color: #fff;
+}
+ul.ui-autocomplete{
+  background-color: #fff;
+	position: absolute;
+	list-style: none;
+	margin:0;
+	padding:0;
+	border: solid 1px #999;
+	li{
+    background-color: #fff;
+		border-top: solid 1px #DDD;
+		margin-left: 10px;
+		padding: 5px;
+		a {
+			color: #000;
+			display:block;
+			padding: 10px;
+		}
+	}
+}
+.ui-autocomplete:hover, .ui-autocomplete li:hover{
+  background-color: #FFFCB2;
+}

@@ -13,10 +13,10 @@
           form.form-horizontal
             .form-group
               .col-sm-8
-                input.form-control.input-lg#search-start placeholder="Starting Point" onkeypress="calcRoute();"
+                = text_field_tag "search-start", nil, name: nil, :class=>"form-control input-lg", :placeholder => "Start", :data => {autocomplete_source: Place.select("address").order(:address).map(&:address)}
             .form-group
               .col-sm-8
-                input.form-control.input-lg#search-destination placeholder="Destination" onkeypress="calcRoute();"
+                = text_field_tag "search-destination", nil, name: nil, :class=>"form-control input-lg", :placeholder => "Start", :data => {autocomplete_source: Place.select("address").order(:address).map(&:address)}
 
           .head-btn.wow.fadeInLeft
             a.btn-head-search href="/site/map" Get Route

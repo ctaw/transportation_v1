@@ -13,7 +13,14 @@ $(document).on 'ready page:load', ->
   $(window).resize(->
 	  h = $(window).height()
 	  offsetTop = 60
-	  
+
 	  $('#map').css 'height', h - offsetTop
 	  return
 	).resize()
+
+
+  $('#search-start').autocomplete
+    source: $('#search-start').data('autocomplete-source')
+
+  $('#search-destination').autocomplete
+    source: $('#search-destination').data('autocomplete-source')
